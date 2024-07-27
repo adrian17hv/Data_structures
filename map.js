@@ -39,69 +39,61 @@ console.log(myMapp)
 
 class MyMap {
     constructor() {
-        this._entries = [];
+        // Inicializar la estructura interna de almacenamiento.
     }
 
+    // Método para obtener el tamaño del mapa.
     get size() {
-        return this._entries.length;
+        // Retornar el número de pares clave-valor.
     }
 
+    // Método para añadir un nuevo par clave-valor.
     set(key, value) {
-        const index = this._entries.findIndex(entry => entry[0] === key);
-        if (index === -1) {
-            this._entries.push([key, value]);
-        } else {
-            this._entries[index][1] = value;
-        }
+        // Añadir el par clave-valor al mapa.
     }
 
+    // Método para obtener el valor asociado a una clave.
     get(key) {
-        const entry = this._entries.find(entry => entry[0] === key);
-        return entry ? entry[1] : undefined;
+        // Retornar el valor asociado a la clave.
     }
 
+    // Método para comprobar si una clave está en el mapa.
     has(key) {
-        return this._entries.some(entry => entry[0] === key);
+        // Retornar verdadero si la clave está en el mapa, falso en caso contrario.
     }
 
+    // Método para eliminar un par clave-valor del mapa.
     delete(key) {
-        const index = this._entries.findIndex(entry => entry[0] === key);
-        if (index !== -1) {
-            this._entries.splice(index, 1);
-            return true;
-        }
-        return false;
+        // Eliminar el par clave-valor asociado a la clave.
     }
 
+    // Método para eliminar todos los pares clave-valor del mapa.
     clear() {
-        this._entries = [];
+        // Eliminar todos los pares clave-valor del mapa.
     }
 
+    // Método para iterar sobre cada par clave-valor en el mapa.
     forEach(callbackFn, thisArg) {
-        for (const [key, value] of this._entries) {
-            callbackFn.call(thisArg, value, key, this);
-        }
+        // Iterar sobre cada par clave-valor y llamar al callback con cada par.
     }
 
-    *keys() {
-        for (const [key] of this._entries) {
-            yield key;
-        }
+    // Método para obtener un iterador de las claves en el mapa.
+    keys() {
+        // Retornar un iterador de las claves.
     }
 
-    *values() {
-        for (const [, value] of this._entries) {
-            yield value;
-        }
+    // Método para obtener un iterador de los valores en el mapa.
+    values() {
+        // Retornar un iterador de los valores.
     }
 
-    *entries() {
-        for (const entry of this._entries) {
-            yield entry;
-        }
+    // Método para obtener un iterador de los pares clave-valor en el mapa.
+    entries() {
+        // Retornar un iterador de los pares clave-valor.
     }
 
+    // Método para obtener el objeto iterador por defecto.
     [Symbol.iterator]() {
-        return this.entries();
+        // Retornar el iterador de pares clave-valor.
     }
 }
