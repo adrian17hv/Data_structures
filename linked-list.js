@@ -53,7 +53,7 @@ let node1 = new ListNode(2)
 let node2 = new ListNode(5)
 node1.next = node2
 
-//  create a Linked list with the node1
+//  create a ll with the node1
 
 let lList = new LinkedList(node1)
 
@@ -100,7 +100,7 @@ class LinkedList {
     }
 }
 
-// Ejemplo de uso:
+// example usecase
 const list = new LinkedList();
 list.head = {
     value: 6,
